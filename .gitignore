@@ -1,0 +1,10 @@
+*
+!.gitignore
+!create-db.sh
+!custom.ini
+!default
+!install.sh
+!LICENSE 
+!README.md
+!Vagrantfile
+!www.conf
