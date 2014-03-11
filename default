@@ -1,6 +1,6 @@
 server {
 	index index.php;
-	set $basepath "/var/www";
+	set $basepath "/web";
  
 	set $domain $host;
  
@@ -30,5 +30,22 @@ server {
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 		fastcgi_index index.php;
 		include fastcgi_params;
+	}
+	
+	location /phpmyadmin {
+		root /usr/share/;
+		index index.php;
+		location ~ ^/phpmyadmin/(.+\.php) {
+			root /usr/share/;
+			fastcgi_split_path_info ^(.+\.php)(/.+)$;
+			fastcgi_pass unix:/var/run/php5-fpm.sock;
+			fastcgi_index index.php;
+			include fastcgi_params;
+			fastcgi_param SCRIPT_FILENAME $request_filename;
+			fastcgi_param PATH_INFO $fastcgi_script_name;
+		}
+		location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+			root /usr/share/;
+		}
 	}
 }
