@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.customize ["modifyvm", :id, "--name", "vintage-vm-clean"]
     virtualbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    virtualbox.customize ["modifyvm", :id, "--memory", "300"]
+    virtualbox.customize ["modifyvm", :id, "--memory", "512"]
     virtualbox.customize ["setextradata", :id, "--VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
 
