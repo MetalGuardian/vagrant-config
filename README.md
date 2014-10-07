@@ -28,3 +28,24 @@ echo "address=/.dev/192.168.56.101" >> /etc/dnsmasq.conf
 ```
 
 use IDE to develop, backup old projects form synced folder to prevent slow virtual machine working
+
+
+# Known bugs
+------------
+
+1. if you have broken static files - in `/etc/nginx/nginx.conf` change `sendfile off`;
+
+2. install `vagrant-vbguest` : `vagrant plugin install vagrant-vbguest`. this plugin install required guest drivers automatically
+
+# Hints
+
+if you want login in phpmyadmin automatically - add lines to `/etc/phpmyadmin/config.inc.php`:
+
+```
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['username'] = 'root';
+$cfg['Servers'][$i]['password'] = '';
+```
+
+add this line `$cfg['Servers'][$i]['AllowNoPassword'] = TRUE;` if you have empty user password
+
