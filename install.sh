@@ -6,7 +6,7 @@ apt-get update -y
 apt-get upgrade -y
 apt-get dist-upgrade -q -y
 
-apt-get install -y -q git nginx php5-fpm php5-cli php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-mcrypt php5-memcache php5-json phpmyadmin curl
+apt-get install -y -q git nginx mysql-client mysql-server php5-fpm php5-cli php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-mcrypt php5-memcache php5-json phpmyadmin curl
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
