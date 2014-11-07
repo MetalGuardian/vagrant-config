@@ -17,3 +17,6 @@ apt-get dist-upgrade -q -y
 cp /vagrant/www.conf /etc/php5/fpm/pool.d/
 cp /vagrant/default /etc/nginx/sites-available/
 cp /vagrant/custom.ini /etc/php5/mods-available/ && cd /etc/php5/fpm/conf.d/ && ln -s ../../mods-available/custom.ini ./20-custom.ini
+
+service nginx restart
+service php5-fpm restart
